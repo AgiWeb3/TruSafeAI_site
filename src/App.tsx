@@ -10,7 +10,7 @@ export default function App() {
           <div className="flex items-center gap-3 cursor-pointer group">
             <TruSafeMainIcon className="w-10 h-10 transition-transform duration-500 group-hover:scale-110" />
             <span className="text-2xl font-black tracking-tighter text-white leading-none">
-              TRUSAFEAI
+              SED AI
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
@@ -432,7 +432,7 @@ export default function App() {
             <div className="md:col-span-1">
               <div className="flex items-center gap-3 mb-6">
                 <TruSafeMainIcon className="w-8 h-8" />
-                <span className="text-xl font-black text-white tracking-tighter">TRUSAFEAI</span>
+                <span className="text-xl font-black text-white tracking-tighter">SED AI</span>
               </div>
               <p className="text-slate-400 text-sm leading-relaxed mb-4">
                 建立 AI 时代的信任基石。
@@ -461,13 +461,13 @@ export default function App() {
             <div>
               <h4 className="text-white font-semibold mb-4">联系我们</h4>
               <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="mailto:contact@trusafe.ai" className="hover:text-blue-400 transition-colors">contact@trusafe.ai</a></li>
+                <li><a href="mailto:support@datased.com" className="hover:text-blue-400 transition-colors">support@datased.com</a></li>
               </ul>
             </div>
           </div>
           
           <div className="pt-8 border-t border-slate-800/50 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-            <p>© 2026 TruSafe AI. All rights reserved.</p>
+            <p>© 2026 SED AI. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-slate-300 transition-colors">隐私政策</a>
               <a href="#" className="hover:text-slate-300 transition-colors">服务条款</a>
