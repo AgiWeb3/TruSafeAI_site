@@ -1,0 +1,26 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sedGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#3B82F6" />
+      <stop offset="100%" stopColor="#10B981" />
+    </linearGradient>
+  </defs>
+
+  <path d="M 5 30 L 15 30 M 8 70 L 22 70 M 12 85 L 28 85" stroke="url(#sedGradient)" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="3 4" opacity="0.6" />
+  <path d="M 2 50 L 18 50" stroke="url(#sedGradient)" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
+  
+  <path d="M 30 82 C 12 60 25 15 60 15 C 80 15 92 28 95 48 C 96 60 90 75 80 82 C 60 92 40 88 30 82 Z" stroke="url(#sedGradient)" strokeWidth="4" strokeLinejoin="round" />
+
+  <path d="M 94 45 C 70 38 45 42 40 55 C 36 65 42 75 60 76 C 75 77 88 72 93 62 C 94 56 94.5 50 94 45 Z" fill="url(#sedGradient)" fillOpacity="0.15" stroke="url(#sedGradient)" strokeWidth="3" strokeLinejoin="round" />
+
+  <path d="M 34 81 C 45 74 60 78 72 75" stroke="url(#sedGradient)" strokeWidth="2" strokeLinecap="round" />
+  
+  <path d="M 23 40 L 10 40 M 20 52 L 4 52 M 22 64 L 12 64" stroke="url(#sedGradient)" strokeWidth="3" strokeLinecap="round" />
+
+  <circle cx="55" cy="58" r="3" fill="url(#sedGradient)" />
+  <circle cx="70" cy="52" r="1.5" fill="url(#sedGradient)" />
+  <circle cx="45" cy="65" r="1.5" fill="url(#sedGradient)" />
+  <path d="M 45 65 L 55 58 L 70 52" stroke="url(#sedGradient)" strokeWidth="1.5" strokeLinecap="round" />
+
+  <text x="58" y="34" fontSize="13" fontFamily="sans-serif" fontWeight="900" fontStyle="italic" textAnchor="middle" fill="url(#sedGradient)">AI</text>
+</svg>
