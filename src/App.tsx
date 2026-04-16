@@ -1,14 +1,37 @@
+import { useState } from 'react';
 import { ArrowRight, Download, Server, Cpu, Lock, Check, Building2, Activity, ShieldCheck, Terminal, UserCheck, Shield, Zap } from 'lucide-react';
-import { TruSafeMainIcon, TrustGatewayIcon, TrustVaultIcon, TrustAutoRedIcon, TrustAuthIcon } from './components/Icons';
+import { SedMainIcon, SedGatewayIcon, SedVaultIcon, SedAutoRedIcon, SedAuthIcon } from './components/Icons';
+import { motion } from 'motion/react';
+
+const paragraphVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    }
+  }
+};
+
+const charVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+};
+
+const text1 = "AI 时代的智能业务安全基础设施。集 ";
+const text2 = "统一身份管控、零信任意图网关、高密隐私金库";
+const text3 = " 于一体的 AI 全链路安全体系。";
 
 export default function App() {
+  const [typewriterKey, setTypewriterKey] = useState(0);
+
   return (
     <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-blue-500/30">
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-800 bg-slate-900/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer group">
-            <TruSafeMainIcon className="w-10 h-10 transition-transform duration-500 group-hover:scale-110" />
+            <SedMainIcon className="w-10 h-10 transition-transform duration-500 group-hover:scale-110" />
             <span className="text-2xl font-black tracking-tighter text-white leading-none">
               SED AI
             </span>
@@ -19,9 +42,9 @@ export default function App() {
                 产品 <ArrowRight className="w-3 h-3 rotate-90" />
               </a>
               <div className="absolute top-full left-0 mt-2 w-48 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
-                <a href="#products" className="block px-4 py-2 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors">Trust Auth</a>
-                <a href="#products" className="block px-4 py-2 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors">Trust Gateway</a>
-                <a href="#products" className="block px-4 py-2 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors">Trust Vault</a>
+                <a href="#products" className="block px-4 py-2 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors">SED Auth</a>
+                <a href="#products" className="block px-4 py-2 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors">SED Gateway</a>
+                <a href="#products" className="block px-4 py-2 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors">SED Vault</a>
               </div>
             </div>
             <a href="#solutions" className="hover:text-white transition-colors">解决方案</a>
@@ -36,9 +59,69 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <main className="pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
-        {/* Optional Badge */}
+      {/* Hero Section Container */}
+      <div className="relative w-full overflow-hidden flex flex-col items-center">
+        {/* Abstract Tech Code Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none select-none flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,white_10%,transparent_80%)] opacity-80">
+          {/* JSON Block 1 - Left */}
+          <pre className="absolute top-16 md:top-24 left-0 md:left-[10%] text-[10px] md:text-sm font-mono text-emerald-400/50 blur-[1px] md:blur-[2px] transform -rotate-6 leading-relaxed">
+{`{
+  "policy_id": "STRICT_ENCLAVE_0x9A",
+  "timestamp": "2026-04-16T12:00:00Z",
+  "modules": {
+    "llm_firewall": {
+      "status": "ACTIVE",
+      "deep_inspection": true,
+      "semantic_filter": {
+        "jailbreak_confidence": 0.001,
+        "prompt_leakage": "BLOCK"
+      }
+    },
+    "memory_sandbox": {
+      "isolation": "L4_HARDWARE",
+      "crypto": "AES-256-GCM",
+      "tee_attestation": "VALID"
+    }
+  }
+}`}
+          </pre>
+
+          {/* JSON Block 2 - Right */}
+          <pre className="absolute top-48 md:top-64 right-0 md:right-[10%] text-[10px] md:text-sm font-mono text-blue-400/50 blur-[2px] md:blur-[3px] transform rotate-6 leading-relaxed">
+{`{
+  "audit_trail": {
+    "sequence_hash": "e3b0c442...",
+    "actor_identity": "urn:sed:ai:sys",
+    "action": "EVALUATE_INTENT",
+    "result": "BLOCKED_MALICIOUS",
+    "latency_ms": 1.042
+  },
+  "zero_trust_mesh": {
+    "node_auth": "mTLS_v1.3",
+    "inspection": "deep_tensor",
+    "anomaly_score": 0.9982
+  }
+}`}
+          </pre>
+
+          {/* YAML Block - Bottom Center */}
+          <pre className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] md:text-sm font-mono text-purple-400/40 blur-[1px] md:blur-[2px] leading-relaxed whitespace-pre text-center">
+{`rules:
+  - id: block_prompt_injection
+    pattern: "(?i)(ignore previous instructions|system prompt)"
+    action: SILENT_DROP
+  - id: dynamic_rbac_evaluation
+    condition: "ctx.user.clearance < ctx.data.classification"
+    action: MASK_PII_AND_REDACT`}
+          </pre>
+          
+          {/* Subtle Center Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-blue-600/10 rounded-full blur-[80px] md:blur-[100px] z-0"></div>
+        </div>
+
+        {/* Hero Content */}
+        <main className="relative z-10 pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl w-full flex flex-col items-center text-center">
+          {/* Optional Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-blue-400 text-sm font-medium mb-8">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -52,14 +135,29 @@ export default function App() {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-slate-400">权限共管不越界</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-slate-400 max-w-3xl mb-12 leading-relaxed">
-          AI 时代的智能业务安全基础设施。专为金融、医疗与政务打造的大模型防御网关与高密资产金库。
-        </p>
+        <motion.p 
+          key={typewriterKey}
+          className="text-lg md:text-xl text-slate-400 max-w-3xl mb-12 leading-relaxed"
+          variants={paragraphVariants}
+          initial="hidden"
+          animate="visible"
+          onAnimationComplete={() => {
+            setTimeout(() => {
+              setTypewriterKey(prev => prev + 1);
+            }, 5000);
+          }}
+        >
+          {text1.split('').map((char, i) => <motion.span key={`t1-${i}`} variants={charVariants}>{char}</motion.span>)}
+          <strong className="text-slate-200 font-medium font-normal">
+            {text2.split('').map((char, i) => <motion.span key={`t2-${i}`} variants={charVariants}>{char}</motion.span>)}
+          </strong>
+          {text3.split('').map((char, i) => <motion.span key={`t3-${i}`} variants={charVariants}>{char}</motion.span>)}
+        </motion.p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-16 w-full sm:w-auto">
           <button className="w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20 cursor-pointer">
             <Download className="w-5 h-5" />
-            下载 TrustLLM AutoRed 探针
+            下载 SED AutoRed 探针
           </button>
           <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-slate-600 hover:border-slate-400 hover:bg-slate-800 text-white font-semibold rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
             预约架构师演示
@@ -84,7 +182,8 @@ export default function App() {
             符合金融级应用合规
           </div>
         </div>
-      </main>
+        </main>
+      </div>
 
       {/* Dual-Engine Vision Section */}
       <section id="products" className="py-24 px-6 max-w-7xl mx-auto relative">
@@ -126,9 +225,9 @@ export default function App() {
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none group-hover:bg-blue-500/30 transition-colors duration-500"></div>
 
             <div className="relative z-10">
-              <TrustAuthIcon className="w-14 h-14 mb-6" />
+              <SedAuthIcon className="w-14 h-14 mb-6" />
               <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">
-                Trust Auth
+                SED Auth
               </h3>
               <p className="text-blue-400 font-medium mb-6">/ AI 统一身份中心</p>
               
@@ -166,9 +265,9 @@ export default function App() {
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none group-hover:bg-blue-500/30 transition-colors duration-500"></div>
 
             <div className="relative z-10">
-              <TrustGatewayIcon className="w-14 h-14 mb-6" />
+              <SedGatewayIcon className="w-14 h-14 mb-6" />
               <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">
-                Trust Gateway
+                SED Gateway
               </h3>
               <p className="text-blue-400 font-medium mb-6">/ 零信任意图网关</p>
               
@@ -207,9 +306,9 @@ export default function App() {
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-500/30 transition-colors duration-500"></div>
 
             <div className="relative z-10">
-              <TrustVaultIcon className="w-14 h-14 mb-6" />
+              <SedVaultIcon className="w-14 h-14 mb-6" />
               <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">
-                Trust Vault
+                SED Vault
               </h3>
               <p className="text-purple-400 font-medium mb-6">/ 高密可信金库</p>
               
@@ -338,7 +437,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           {/* Left Content */}
           <div>
-            <TrustAutoRedIcon className="w-16 h-16 mb-8" />
+            <SedAutoRedIcon className="w-16 h-16 mb-8" />
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-950/50 border border-blue-800/50 text-blue-300 text-sm font-medium mb-6">
               <Terminal className="w-4 h-4" />
               PLG 开发者工具
@@ -347,7 +446,7 @@ export default function App() {
               您的 AI 业务离<br className="hidden md:block" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">数据裸奔</span>还有多远？
             </h2>
             <p className="text-lg text-blue-100/70 mb-10 leading-relaxed">
-              下载 TrustLLM AutoRed 企业级自动化红队探针。只需 5 分钟，在零业务损害的前提下，全面评估贵司内部大模型 Agent 的越权漏洞、注入风险与隐私外泄敞口。
+              下载 SED AutoRed 企业级自动化红队探针。只需 5 分钟，在零业务损害的前提下，全面评估贵司内部大模型 Agent 的越权漏洞、注入风险与隐私外泄敞口。
             </p>
             <button className="px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-yellow-950 font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto">
               <Download className="w-5 h-5" />
@@ -364,11 +463,11 @@ export default function App() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
               </div>
-              <div className="text-xs text-slate-400 font-mono ml-2">autored@trusafe: ~</div>
+              <div className="text-xs text-slate-400 font-mono ml-2">autored@sed: ~</div>
             </div>
             {/* Terminal Body */}
             <div className="p-6 font-mono text-sm md:text-base space-y-3">
-              <div className="text-slate-300"><span className="text-blue-400">$</span> trustllm-autored scan --target local_agent</div>
+              <div className="text-slate-300"><span className="text-blue-400">$</span> sed-autored scan --target local_agent</div>
               <div className="text-slate-400">[*] Initializing probe modules...</div>
               <div className="text-slate-400">[*] Injecting test payload: "Ignore previous instructions..."</div>
               <div className="text-emerald-400">Scanning Agent I/O...</div>
@@ -431,7 +530,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-1">
               <div className="flex items-center gap-3 mb-6">
-                <TruSafeMainIcon className="w-8 h-8" />
+                <SedMainIcon className="w-8 h-8" />
                 <span className="text-xl font-black text-white tracking-tighter">SED AI</span>
               </div>
               <p className="text-slate-400 text-sm leading-relaxed mb-4">
@@ -442,10 +541,10 @@ export default function App() {
             <div>
               <h4 className="text-white font-semibold mb-4">产品</h4>
               <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="#products" className="hover:text-blue-400 transition-colors">Trust Auth</a></li>
-                <li><a href="#products" className="hover:text-blue-400 transition-colors">Trust Gateway</a></li>
-                <li><a href="#products" className="hover:text-blue-400 transition-colors">Trust Vault</a></li>
-                <li><a href="#autored" className="hover:text-blue-400 transition-colors">Trust AutoRed</a></li>
+                <li><a href="#products" className="hover:text-blue-400 transition-colors">SED Auth</a></li>
+                <li><a href="#products" className="hover:text-blue-400 transition-colors">SED Gateway</a></li>
+                <li><a href="#products" className="hover:text-blue-400 transition-colors">SED Vault</a></li>
+                <li><a href="#autored" className="hover:text-blue-400 transition-colors">SED AutoRed</a></li>
               </ul>
             </div>
 
